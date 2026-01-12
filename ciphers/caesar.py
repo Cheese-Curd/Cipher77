@@ -34,6 +34,6 @@ def cipher(plain_text, encode):
 		charOffset = offset
 		charOffset += (ord(char) - base)
 
-		totalStr += chr(base + charOffset)
+		totalStr += chr(base + (charOffset) % 26)
 
 	return totalStr

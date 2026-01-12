@@ -25,9 +25,6 @@ def cipher(plain_text, encode):
 			totalStr += char
 			continue
 
-		if char == " ":
-			totalStr += " "
-			continue
 		if not char.isalpha():
 			totalStr += char
 			continue

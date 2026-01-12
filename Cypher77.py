@@ -91,7 +91,7 @@ while loop:
 	encode  = True
 
 	while True:
-		choice = input("Encode? (Y/N) ").lower()
+		choice = input("Encode? (Y/N): ").lower()
 
 		if choice != "y" and choice != "n":
 			print("Input valid choice.")

@@ -22,7 +22,11 @@ NATO = (
 	"Sierra",
 	"Tango",
 	"Uniform",
-	"Victor"
+	"Victor",
+	"Whiskey",
+	"X-ray",
+	"Yankee",
+	"Zulu"
 )
 
 NATO_REVERSE = {word.lower(): chr(ord('a') + i) for i, word in enumerate(NATO)}

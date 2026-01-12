@@ -3,6 +3,8 @@ import random
 import os
 import importlib
 
+import TerminalHelper as terminal
+
 ASCII_TEXT = r"""
   /$$$$$$  /$$           /$$                                 /$$$$$$$$ /$$$$$$$$
  /$$__  $$|__/          | $$                                |_____ $$/|_____ $$/
@@ -51,41 +53,39 @@ def loadCiphers():
 
 ciphers = loadCiphers()
 
-# plain_text = input("Input Text: ")
-# for i, cipher in enumerate(ciphers, start=1):
-# 	print(f"{i} -> {cipher.name}")
-# 	print(f"\t{cipher.desc}")
-
-# 	print(cipher.cipher(plain_text))
+def errPrint(*args):
+	print(f"{terminal.Text.Colors.RED}{" ".join(map(str, args))}{terminal.Text.RESET}")
 
 while loop:
 	clear()
 
 	cipher = None
 
-	print(ASCII_TEXT)
-	print(random.choice(splashes))
+	print(f"{terminal.Text.Styles.BOLD}{terminal.Text.Colors.LIGHT_PURPLE}{ASCII_TEXT}{terminal.Text.RESET}")
+	print(f"{terminal.Text.Styles.ITALIC}{random.choice(splashes)}")
 
 	print()
-	print("-1 -> Exit (Exit the Program)")
+	errPrint(f"-1 -> Exit {terminal.Text.Styles.ITALIC}(Exit the Program)")
 
 	for i, cipher in enumerate(ciphers, start=1):
-		print(f" {i} -> {cipher.name} ({cipher.desc})")
+		print(f"{terminal.Text.Colors.BLUE} {i} -> {cipher.name} {terminal.Text.Styles.ITALIC}({cipher.desc}){terminal.Text.RESET}")
 
 	while True:
 		try:
 			cipher = int(input("What Cipher would you like to do? "))
 		except:
-			print("Input valid choice.")
+			errPrint("Input valid choice.")
 			continue
 		
 		if cipher == -1:
+			clear()
+			print("Goodbye!")
 			exit()
 		
 		if 0 <= (cipher - 1) < len(ciphers):
 			break
 		else:
-			print("Input valid choice.")
+			errPrint("Input valid choice.")
 	
 	totalStr = ""
 	encode  = True
@@ -94,7 +94,7 @@ while loop:
 		choice = input("Encode? (Y/N): ").lower()
 
 		if choice != "y" and choice != "n":
-			print("Input valid choice.")
+			errPrint("Input valid choice.")
 		else:
 			encode = choice == "y"
 			break
@@ -103,8 +103,8 @@ while loop:
 	totalStr = ciphers[cipher - 1].cipher(plain_text, encode)
 
 	if totalStr == None:
-		print("ERR: Cipher does not have an output!")
+		errPrint("ERR: Cipher does not have an output!")
 	else:
-		print(totalStr)
+		print(f"{terminal.Text.Colors.LIGHT_GREEN}Result:\n\t{totalStr}{terminal.Text.RESET}")
 
 	input("Press enter to continue.")

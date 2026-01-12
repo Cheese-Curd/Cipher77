@@ -47,9 +47,7 @@ def cipher(plain_text, encode):
 
 	if encode:
 		for char in plain_text:
-			base = globalVar.UPPER_OFFSET
-			if not char.isupper():
-				base = globalVar.LOWER_OFFSET
+			base = globalVar.getOffset(char)
 
 			index = ord(char) - base
 

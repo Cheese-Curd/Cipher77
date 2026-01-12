@@ -32,10 +32,7 @@ def cipher(plain_text, encode):
 			totalStr += char
 			continue
 
-		base = globalVar.UPPER_OFFSET
-		if not char.isupper():
-			base = globalVar.LOWER_OFFSET
-
+		base = globalVar.getOffset(char)
 
 		charOffset = offset
 		charOffset += (ord(char) - base)

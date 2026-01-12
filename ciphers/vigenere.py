@@ -17,13 +17,8 @@ def cipher(plain_text, encode):
 			totalStr += char
 			continue
 
-		txtBase = globalVar.UPPER_OFFSET
-		keyBase = globalVar.UPPER_OFFSET
-		if not char.isupper():
-			txtBase = globalVar.LOWER_OFFSET
-		
-		if not key[index].isupper():
-			keyBase = globalVar.LOWER_OFFSET
+		txtBase = globalVar.getOffset(char)
+		keyBase = globalVar.getOffset(key[index])
 
 		p = ord(char) - txtBase
 		k = ord(key[index]) - keyBase

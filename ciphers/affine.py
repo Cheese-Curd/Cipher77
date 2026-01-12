@@ -23,9 +23,7 @@ def cipher(plain_text="", encode=False):
 			totalStr += char
 			continue
 
-		base = globalVar.UPPER_OFFSET
-		if not char.isupper():
-			base = globalVar.LOWER_OFFSET
+		base = globalVar.getOffset(char)
 
 		offset = 0
 		charIndex = ord(char) - base

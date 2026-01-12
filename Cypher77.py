@@ -19,23 +19,9 @@ ASCII_TEXT = """
               |__/                                                              
 """
 
-splash = (
-	"180 Lines of Code!",
-	"Please pass me.",
-	"HI SINISH :D",
-	"Riley wuz here",
-	"'monkey.jpeg'",
-	"this is 100% NOT malware, trust!!!",
-	"Now try Terraria!",
-	"Now try Minecraft!",
-	"THE VOICES AAAAAA",
-	"Happy new Year!",
-	"You should use this as a reference for later years....",
-	"This was too much effort, but I loved it.",
-	"Affine Cipher is not something I can pronounce.",
-	"You should pass Riley.... TRUSTTTTTT",
-	"You're wrong #ragebait (rate my ragebait)"
-)
+splashes = []
+with open("splashes.txt", "r", encoding="utf-8") as file:
+    splashes = [line.strip() for line in file]
 
 loop = True
 

@@ -88,19 +88,19 @@ while loop:
 			print("Input valid choice.")
 	
 	totalStr = ""
-	encrypt  = True
+	encode  = True
 
 	while True:
-		choice = input("Encrypt? (Y/N) ").lower()
+		choice = input("Encode? (Y/N) ").lower()
 
 		if choice != "y" and choice != "n":
 			print("Input valid choice.")
 		else:
-			encrypt = choice == "y"
+			encode = choice == "y"
 			break
 
 	plain_text = input("Input Text: ")
-	totalStr = ciphers[cipher - 1].cipher(plain_text, encrypt)
+	totalStr = ciphers[cipher - 1].cipher(plain_text, encode)
 
 	if totalStr == None:
 		print("ERR: Cipher does not have an output!")

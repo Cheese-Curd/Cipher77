@@ -3,7 +3,7 @@ import ciphers._global as globalVar
 name = "Vigenère Cipher"
 desc = "Standard Vigenère Cipher"
 
-def cipher(plain_text, encrypt):
+def cipher(plain_text, encode):
 	totalStr = ""
 
 	key = input("Input Key:  ")
@@ -28,7 +28,7 @@ def cipher(plain_text, encrypt):
 		p = ord(char) - txtBase
 		k = ord(key[index]) - keyBase
 		nChar = 0
-		if encrypt:
+		if encode:
 			nChar = (p + k) % globalVar.TOTAL_CHAR
 		else:
 			nChar = (p - k) % globalVar.TOTAL_CHAR

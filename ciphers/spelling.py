@@ -30,10 +30,10 @@ NATO_REVERSE = {word.lower(): chr(ord('a') + i) for i, word in enumerate(NATO)}
 name = "Spelling Alphabet"
 desc = "Not really a cipher, but converts each letter into it's Vocal Form"
 
-def cipher(plain_text, encrypt):
+def cipher(plain_text, encode):
 	totalStr = ""
 
-	if encrypt:
+	if encode:
 		for char in plain_text:
 			base = globalVar.UPPER_OFFSET
 			if not char.isupper():

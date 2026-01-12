@@ -3,7 +3,7 @@ import ciphers._global as globalVar
 name = "Affine Cipher"
 desc = "Standard Affine Cipher"
 
-def cipher(plain_text="", encrypt=False):
+def cipher(plain_text="", encode=False):
 	while True:
 		try:
 			aOffset = int(input("Input A Offset: "))
@@ -29,7 +29,7 @@ def cipher(plain_text="", encrypt=False):
 
 		offset = 0
 		charIndex = ord(char) - base
-		if encrypt:
+		if encode:
 			offset = (aOffset * charIndex) + bOffset
 		else:
 			aOffset = pow(aOffset, -1, globalVar.TOTAL_CHAR) # Inverse A

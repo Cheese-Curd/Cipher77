@@ -3,7 +3,7 @@ import ciphers._global as globalVar
 name = "Caesar Cipher"
 desc = "Standard Caesar Cipher, the one that started it all"
 
-def cipher(plain_text, encrypt):
+def cipher(plain_text, encode):
 	offset = 0
 	while True:
 		try:
@@ -14,7 +14,7 @@ def cipher(plain_text, encrypt):
 
 	totalStr = ""
 	
-	if not encrypt:
+	if not encode:
 		offset = -offset
 
 	for char in plain_text:

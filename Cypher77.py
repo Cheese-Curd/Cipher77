@@ -102,5 +102,9 @@ while loop:
 	plain_text = input("Input Text: ")
 	totalStr = ciphers[cipher - 1].cipher(plain_text, encrypt)
 
-	print(totalStr)
+	if totalStr == None:
+		print("ERR: Cipher does not have an output!")
+	else:
+		print(totalStr)
+
 	input("Press enter to continue.")

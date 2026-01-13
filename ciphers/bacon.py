@@ -61,12 +61,17 @@ def cipher(plain_text, encode):
 		for word in plain_text.split():
 			pString = pattern_reverse.get(word.lower())
 
+			decodeTable = str.maketrans({
+				letterA: "a",
+				letterB: "b"
+			})
+
 			# Make sure it's valid
 			if pString == None:
 				totalStr += f"{word} "
 				continue
 
-			char = pString.translate(translateTable)
+			char = pattern_reverse.get(word.lower().translate(decodeTable))
 
 			if char:
 				totalStr += char

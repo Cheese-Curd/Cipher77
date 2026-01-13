@@ -16,12 +16,12 @@ ASCII_TEXT = r"""
 
 splashes = []
 with open("splashes.txt", "r", encoding="utf-8") as file:
-    splashes = [line.strip() for line in file]
+	splashes = [line.strip() for line in file]
 
 loop = True
 
 def clear():
-    os.system("cls" if os.name == "nt" else "clear")
+	os.system("cls" if os.name == "nt" else "clear")
 
 def loadCiphers():
 	ciphers = []
@@ -51,12 +51,30 @@ ciphers = loadCiphers()
 def errPrint(*args):
 	print(f"{terminal.Text.Colors.RED}{" ".join(map(str, args))}{terminal.Text.RESET}")
 
+variables = {}
+
+with open("variables.txt", "r", encoding="utf-8") as file:
+	for line in file:
+		line = line.strip()
+		if not line or "=" not in line:
+			continue
+
+		key, value = line.split("=", 1)
+		variables[key] = value.lower() == "true"
+
+if variables["demo"] == True:
+	clear()
+	print("[ CIPHER 77 ]")
+	print("Demo Mode Enabled. Press enter to continue.")
+	input("")
+
 while loop:
 	clear()
 
 	cipher = None
 
-	print(f"{terminal.Text.Styles.BOLD}{terminal.Text.Colors.LIGHT_PURPLE}{ASCII_TEXT}{terminal.Text.RESET}")
+	if variables["title"] == True:
+		print(f"{terminal.Text.Styles.BOLD}{terminal.Text.Colors.LIGHT_PURPLE}{ASCII_TEXT}{terminal.Text.RESET}")
 	print(f"{terminal.Text.Styles.ITALIC}{random.choice(splashes)}")
 
 	print()

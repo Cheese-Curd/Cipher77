@@ -1,3 +1,5 @@
+import TerminalHelper as terminal
+
 UPPER_OFFSET = 65
 LOWER_OFFSET = 97
 TOTAL_CHAR   = 26

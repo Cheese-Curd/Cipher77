@@ -70,7 +70,7 @@ def cipher(plain_text, encode, demo):
 		if encode:
 			print("For every character in plain text...")
 			print("\tJust convert it to use that table")
-			print("I simply add a '...' to seperate words")
+			print("\tI simply add a '...' to seperate words")
 		else:
 			print("For every word in cipher text...")
 			print("\tIt's actually split by each 'space'")

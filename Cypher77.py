@@ -92,6 +92,10 @@ while loop:
 		
 		if cipher == -1:
 			clear()
+			if variables["demo"] == True:
+				print("[ CIPHER 77 ]")
+				input("Thank you for viewing. Press enter to exit. ")
+				clear()
 			print("Goodbye!")
 			exit()
 		

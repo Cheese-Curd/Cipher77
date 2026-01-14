@@ -27,6 +27,12 @@ def cipher(plain_text, encode):
 			base = globalVar.LOWER_OFFSET
 
 		for word in plain_text.split(seperator):
+			try:
+				# Only do it if it's valid
+				int(word)
+			except:
+				continue
+
 			totalStr += chr((int(word) + base) - 1)
 	
 	return totalStr

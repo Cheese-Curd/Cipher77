@@ -78,4 +78,24 @@ def cipher(plain_text, encode):
 			else:
 				totalStr += f"{word} "
 
+	if demo:
+		print(f"{globalVar.terminal.Text.Colors.BLUE}How to do the cipher:{globalVar.terminal.Text.RESET}")
+		print("This one is weirdddd....")
+		print("For context, there is a whole conversion table")
+		print("\ta->aaaaa")
+		print("\tb->aaaab")
+		print("\tc->aaaba")
+		print("\tEtc.")
+		if encode:
+			print("For every character in plain text...")
+			print("\tJust convert it to use that table, and change a & b to be what you put in")
+			print("\tHonestly, this one is just annoying to code, not really encode")
+			print("\tJust make sure to add a space at the end of each 'letter'")
+		else:
+			print("For every word in cipher text...")
+			print("\tIt's actually split by each 'space'")
+			print("\tJust like encoding, more annoying to code than to actually decode.")
+			print("\tConvert 'a' & 'b' to be whatever letters you put in.")
+		print("\tThis cannot have 'multiple' words as it doesn't have any splitter.")
+
 	return totalStr

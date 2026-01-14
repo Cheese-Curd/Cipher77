@@ -3,7 +3,7 @@ import ciphers._global as globalVar
 name = "Affine Cipher"
 desc = "Standard Affine Cipher"
 
-def cipher(plain_text="", encode=False):
+def cipher(plain_text="", encode=False, demo=False):
 	while True:
 		try:
 			aOffset = int(input("Input A Offset: "))
@@ -36,5 +36,16 @@ def cipher(plain_text="", encode=False):
 		offset = offset % globalVar.TOTAL_CHAR
 
 		totalStr += chr(offset + base)
+
+	if demo:
+		print(f"{globalVar.terminal.Text.Colors.BLUE}How to do the cipher:{globalVar.terminal.Text.RESET}")
+		print("For every character in plain text...")
+		print("\tGet the character's index (ie: a->0)")
+		if encode:
+			print("\tGet the offset by doing (aOffset * charIndex) + bOffset")
+		else:
+			print("\tInverse the A Offset (aOffset^-1) % 26 (26 being letters in the alphabet)")
+			print("\tGet the offset by doing aOffset * (charIndex - bOffset)")
+		print("\tDo offset % 26, and add that offset character to the total string")
 	
 	return totalStr

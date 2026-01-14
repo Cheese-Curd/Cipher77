@@ -3,7 +3,7 @@ import ciphers._global as globalVar
 name = "A1Z26 Cipher"
 desc = "The simpilist Cipher"
 
-def cipher(plain_text, encode):
+def cipher(plain_text, encode, demo):
 	seperator = input("Input Seperator: ")
 
 	totalStr = ""
@@ -34,5 +34,16 @@ def cipher(plain_text, encode):
 				continue
 
 			totalStr += chr((int(word) + base) - 1)
-	
+
+	if demo:
+		print(f"{globalVar.terminal.Text.Colors.BLUE}How to do the cipher:{globalVar.terminal.Text.RESET}")
+		if encode:
+			print("For every character in plain text...")
+			print("\tGet the character's index (ie: a->0) and add one (a->1)")
+			print("\tThen, add the seperator (ie: _)")
+		else:
+			print("For every 'word' (split by seperator ie: _) in cipher text...")
+			print("\tGet the character index and subtract one (0->a)")
+			print("\tThen, add that to the final string")
+
 	return totalStr

@@ -113,7 +113,7 @@ while loop:
 			break
 
 	plain_text = input("Input Text: ")
-	totalStr = ciphers[cipher - 1].cipher(plain_text, encode)
+	totalStr = ciphers[cipher - 1].cipher(plain_text, encode, variables["demo"])
 
 	if totalStr == None:
 		errPrint("ERR: Cipher does not have an output!")

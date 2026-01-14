@@ -68,7 +68,15 @@ if variables["demo"] == True:
 	print("Demo Mode Enabled. Press enter to continue.")
 	input("")
 
+baseTitle = "Cipher 77"
+if variables["demo"]:
+	baseTitle = "[DEMO] Cipher 77"
+
 while loop:
+	if variables["demo"]:
+		terminal.setTitle(baseTitle)
+	else:
+		terminal.setTitle(baseTitle)
 	clear()
 
 	cipher = None
@@ -108,6 +116,7 @@ while loop:
 	encode  = True
 
 	while True:
+		terminal.setTitle(f"{baseTitle} - {ciphers[cipher - 1].name}")
 		choice = input("Encode? (Y/N): ").lower()
 
 		if choice != "y" and choice != "n":

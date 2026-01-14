@@ -34,7 +34,7 @@ pattern = (
 
 pattern_reverse = {word.lower(): chr(ord('a') + i) for i, word in enumerate(pattern)}
 
-def cipher(plain_text, encode):
+def cipher(plain_text, encode, demo):
 	totalStr = ""
 
 	letterA = input("Input Letter A: ")

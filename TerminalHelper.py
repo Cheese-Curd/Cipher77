@@ -1,3 +1,5 @@
+import sys
+
 class Text:
 	class Colors:
 		BLACK        = "\033[0;30m"
@@ -26,3 +28,7 @@ class Text:
 		CROSSED   = "\033[9m"
 	
 	RESET        = "\033[0m"
+
+def setTitle(title="Python Script"):
+	sys.stdout.write(f"\x1b]0;{title}\x07")
+	sys.stdout.flush()

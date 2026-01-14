@@ -55,6 +55,8 @@ def cipher(plain_text, encode):
 			if char:
 				totalStr += char
 			else:
+				if word == "...":
+					word = " "
 				totalStr += word
 
 	return totalStr

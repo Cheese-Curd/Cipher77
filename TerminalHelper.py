@@ -1,3 +1,4 @@
+import os
 import sys
 
 class Text:
@@ -32,3 +33,6 @@ class Text:
 def setTitle(title="Python Script"):
 	sys.stdout.write(f"\x1b]0;{title}\x07")
 	sys.stdout.flush()
+
+def exit(code=0):
+	os._exit(code)

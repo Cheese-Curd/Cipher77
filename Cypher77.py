@@ -115,7 +115,7 @@ while loop:
 				input("Thank you for viewing. Press enter to exit. ")
 				clear()
 			print("Goodbye!")
-			exit()
+			terminal.exit(0)
 		
 		if 0 <= (cipher - 1) < len(ciphers):
 			break

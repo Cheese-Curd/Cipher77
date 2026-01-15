@@ -2,8 +2,18 @@ import importlib.util
 import random
 import os
 import importlib
+import sys
 
 import TerminalHelper as terminal
+
+# Fixup file paths for when compiled
+if getattr(sys, "frozen", False):
+	base = os.path.dirname(sys.executable)
+else:
+	base = os.path.dirname(os.path.abspath(__file__))
+
+if base not in sys.path:
+	sys.path.insert(0, base)
 
 ASCII_TEXT = r"""
  ██████╗██╗██████╗ ██╗  ██╗███████╗██████╗     ███████╗███████╗
@@ -31,7 +41,7 @@ def loadCiphers():
 			continue
 
 		path = os.path.join("ciphers", filename)
-		name = filename[:-3]
+		name = f"ciphers.{filename[:-3]}"
 
 		spec = importlib.util.spec_from_file_location(name, path)
 		cipher = importlib.util.module_from_spec(spec)

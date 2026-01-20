@@ -61,7 +61,6 @@ def cipher(plain_text, encode, demo):
 	
 	if demo:
 		print(f"{globalVar.terminal.Text.Colors.BLUE}How to do the cipher:{globalVar.terminal.Text.RESET}")
-		print("This one is weirdddd....")
 		print("For context, there is a whole conversion table")
 		print("\ta->Alpha")
 		print("\tb->Bravo")
@@ -73,7 +72,7 @@ def cipher(plain_text, encode, demo):
 			print("\tI simply add a '...' to seperate words")
 		else:
 			print("For every word in cipher text...")
-			print("\tIt's actually split by each 'space'")
+			print("\tYou convert the word into the letter, and when you see '...' you add a space.")
 		print("\tVery similar to the Bacon Cipher, just allows for word seperation")
 
 	return totalStr

@@ -3,6 +3,7 @@ import random
 import os
 import importlib
 import sys
+import socket
 
 import TerminalHelper as terminal
 
@@ -82,6 +83,18 @@ baseTitle = "Cipher 77"
 if variables["demo"]:
 	baseTitle = "[DEMO] Cipher 77"
 
+# Gets private IP
+def getPIP():
+	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	try:
+		s.connect(('8.8.8.8', 80))
+		IP = s.getsockname()[0]
+	except Exception:
+		IP = '127.0.0.1' # Fallback to localhost if no network connection
+	finally:
+		s.close()
+	return IP
+
 while loop:
 	if variables["demo"]:
 		terminal.setTitle(baseTitle)
@@ -93,7 +106,11 @@ while loop:
 
 	if variables["title"] == True:
 		print(f"{terminal.Text.Styles.BOLD}{terminal.Text.Colors.LIGHT_PURPLE}{ASCII_TEXT}{terminal.Text.RESET}")
-	print(f"{terminal.Text.Styles.ITALIC}{random.choice(splashes)}")
+	splash = random.choice(splashes)
+	if splash == "I have your IP!!! 127.0.0.1!!!!":
+		splash = f"I have your IP!!! {getPIP()}"
+	
+	print(f"{terminal.Text.Styles.ITALIC}{splash}")
 
 	print()
 	errPrint(f"-1 -> Exit {terminal.Text.Styles.ITALIC}(Exit the Program)")
